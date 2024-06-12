@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!"
+    />
+    <meta
+      name="keywords"
+      content="calendar, events, reminders, javascript, html, css, open source coding"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calendar with Events</title>
+  </head>
+  <body>
+    <div class="Head-d">
+      <h1>Time Sheet for the month of Month and Year</h1>
+    </div>
+    <div class="userdetails">
+      
+      <div class="input-row">
+          <label for="name">Employee name:</label>
+          <input type="text" id="name">
+      </div>
+      <div class="input-row">
+          <label for="employeeNumber">Employee number:</label>
+          <input type="text" id="employeeNumber">
+      </div>
+      <div class="input-row">
+          <label for="client">Client:</label>
+          <input type="text" id="client">
+      </div>
+      <div class="input-row">
+          <label for="workingHours">Working hours:</label>
+          <input type="text" id="workingHours">
+      </div>
+      <div class="input-row">
+          <label>Weekly Holidays:</label>
+          <span>Saturday and Sunday</span>
+      </div>
+      <div class="input-row">
+          <label for="location">Location:</label>
+          <input type="text" id="location">
+      </div>
+      
+  </div>
+  
+  </div>
+
+    <div class="container">
+        <div class="calendar">
+            <div class="month">
+              <i class="fas fa-angle-left prev"></i>
+              <div class="date"></div>
+              <button class="today-btn">Today</button>
+              <i class="fas fa-angle-right next"></i>
+            </div>
+            <div class="footer-container-calendar">
+              <!-- Dropdowns to select a specific month and year -->
+              <select id="month" onchange="jump()">
+                <option value=0>Jan</option>
+                <option value=1>Feb</option>
+                <option value=2>Mar</option>
+                <option value=3>Apr</option>
+                <option value=4>May</option>
+                <option value=5>Jun</option>
+                <option value=6>Jul</option>
+                <option value=7>Aug</option>
+                <option value=8>Sep</option>
+                <option value=9>Oct</option>
+                <option value=10>Nov</option>
+                <option value=11>Dec</option>
+              </select>
+              <!-- Dropdown to select a specific year -->
+              <select id="year" onchange="jump()"></select>
+            </div>
+            <div class="weekdays">
+              <div>Date and Hours</div>
+              <div>Sunday</div>
+              <div>Monday</div>
+              <div>Tuesday</div>
+              <div>Wednesday</div>
+              <div>Thursday</div>
+              <div>Friday</div>
+              <div>Saturday</div>
+            </div>
+            <div class="dynamic-table">
+              <div class="dth">
+                <div class="dh">Date<hr><span>Working Hours</span></div>
+                <div class="dh">Date<hr><span>Working Hours</span></div>
+                <div class="dh">Date<hr><span>Working Hours</span></div>
+                <div class="dh">Date<hr><span>Working Hours</span></div>
+                <div class="dh">Date<hr><span>Working Hours</span></div>
+                <div class="dh">Date<hr><span>Working Hours</span></div>
+              </div>
+              <div class="days">
+                  <!--we get js code here-->
+              </div>
+            </div>
+            <div class="goto-today">
+              <button class="down-btn">Download</button>
+              <button class="save-btn">Save</button>
+              <div class="goto">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="tasks">
+      <div class="task-adder">
+        <!-- Dropdowns to select a specific month and year -->
+        <select id="task-adders" >
+          <option value=0>User</option>
+          <option value=1>Manager</option>
+        </select>
+      </div>
+      <div class="today-task">
+      <div class="today-date">
+          <div class="event-day">wed</div>
+          <div class="event-date">12th december 2022</div>
+      </div>
+      <div class="events-container">
+          <div class="events">
+          </div>
+      </div>
+      <button class="scroll-button right-scroll" onclick="scrollRight()">
+        <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="add-event-wrapper">
+        <div class="add-event-header">
+          <div class="title">Add Task</div>
+          <i class="fas fa-times close"></i>
+        </div>
+        <div class="add-event-body">
+          <div class="add-event-input">
+            <input type="text" placeholder="Task  Name" class="event-name" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Task description" class="event-desc" />
+          </div>
+          <div class="add-event-input">
+            <input
+              type="text"
+              placeholder="Task Time From"
+              class="event-time-from"
+            />
+          </div>
+          <div class="add-event-input">
+            <input
+              type="text"
+              placeholder="Task Time To"
+              class="event-time-to"
+            />
+          </div>
+          
+        </div>
+        <div class="add-event-footer">
+          <button class="add-event-btn">Add Event</button>
+        </div>
+      </div>
+      <button class="add-event">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    
+
+    
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
